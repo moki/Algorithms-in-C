@@ -1,2 +1,2 @@
 # Algorithms-in-C
-Algorithms in C by Robert Sedgewick Solutions
+My Solutions for exercises of the Algorithms in C by Robert Sedgewick book
