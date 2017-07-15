@@ -35,9 +35,21 @@
   Quick find implementation.
 
   ```
-  gcc quick find.c -o quick-find
+  gcc quick-find.c -o quick-find
 
   ./quick-find 10
+  ```
+
+  program takes amount of sites as first command line agrument.
+
+## Quick Union
+  
+  Quick union implementation.
+
+  ```
+  gcc quick-union.c -o quick-union
+
+  ./quick-union 10
   ```
 
   program takes amount of sites as first command line agrument.

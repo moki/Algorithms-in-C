@@ -8,7 +8,7 @@ static void representation(void);
 static int belongs(int);
 
 int getCount(void);
-int findSite(int);
+int findRoot(int);
 int connected(int, int);
 int connect(int, int);
 
@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
 
   initialization(*count);
   representation();
-  
+
   int p, q, lps;
   printf("Input pair p and q you want to connect, separated by space.\n");
   
@@ -65,13 +65,17 @@ int getCount(void) {
   return *count;
 }
 
-int findSite(int site) {
+int findRoot(int site) {
   if (!isvalid(site)) {
     printf("Program was provided with errornous values, shutting down.\n");
     exit(EXIT_FAILURE);
   }
 
-  return *(cmps + site);
+  int next;
+
+  for (next = site; next != *(cmps + next); next = *(cmps + next));
+
+  return next;
 }
 
 int connected(int p, int q) {
@@ -80,7 +84,7 @@ int connected(int p, int q) {
     exit(EXIT_FAILURE);
   }
   
-  return findSite(p) == findSite(q);
+  return findRoot(p) == findRoot(q);
 }
 
 int connect(int p, int q) {
@@ -93,13 +97,7 @@ int connect(int p, int q) {
     return 0;
   }
 
-  int *dsp = cmps;
-
-  for (int pv = findSite(p); *(dsp + 1); *++dsp) {
-    if (*dsp == pv) {
-      *dsp = findSite(q);
-    }
-  }
+  *(cmps + findRoot(p)) = findRoot(q);
 
   --*count;
 
