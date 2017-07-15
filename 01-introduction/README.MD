@@ -1,17 +1,5 @@
 # 1.2 A Sample Problem: Connectivity
 
-## Quick Find
-  
-  Quick find implementation.
-
-  ```
-  gcc quick find.c -o quick-find
-
-  ./quick-find 10
-  ```
-
-  program takes amount of sites as first command line agrument.
-
 ### Exercises
 
 #### 1.1
@@ -39,3 +27,17 @@
     0 4
     6 0
   ```
+
+# 1.3 Union-Find Algorithms
+
+## Quick Find
+  
+  Quick find implementation.
+
+  ```
+  gcc quick find.c -o quick-find
+
+  ./quick-find 10
+  ```
+
+  program takes amount of sites as first command line agrument.
