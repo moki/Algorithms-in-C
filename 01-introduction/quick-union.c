@@ -78,6 +78,8 @@ int findRoot(int site) {
 
   for (next = site; next != *(cmps + next); next = *(cmps + next));
 
+  *(cmps + next) = *(cmps + *(cmps + next));
+
   return next;
 }
 
