@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static int *cmps, *count, threshold;
+static int *cmps, *cmpszs, *count, threshold;
 
 static void initialization(int sites);
 static void representation(void);
@@ -19,6 +19,7 @@ int main(int argc, char *argv[]) {
   threshold = *count;
 
   cmps = malloc(*count * sizeof(int));
+  cmpszs = malloc(*count * sizeof(int));
 
   initialization(*count);
   representation();
@@ -45,10 +46,12 @@ static int isvalid(int p) {
 }
 
 static void initialization(int sites) {
-  int *dsp = cmps;
+  int *cmpsp = cmps;
+  int *cmpszsp = cmpszs;
   int i = 0;
   while (i < sites) {
-    *dsp++ = i++;
+    *cmpsp++ = i++;
+    *cmpszsp++ = 1;
   }
 }
 
@@ -97,7 +100,16 @@ int connect(int p, int q) {
     return 0;
   }
 
-  *(cmps + findRoot(p)) = findRoot(q);
+  int p = findRoot(p);
+  int q = findRoot(q);
+
+  if (*(cmpszs + p) < *(cmpszs + q)) {
+    *(cmps + p) = q;
+    *(cmpszs + q) += *(cmpszs + p);
+  } else {
+    *(cmps + q) = p;
+    *(cmpszs + p) += *(cmpszs + q);
+  }
 
   --*count;
 
