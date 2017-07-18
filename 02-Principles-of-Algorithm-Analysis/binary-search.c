@@ -5,9 +5,10 @@ static int *collection, *target, *size;
 static void initialization(int);
 static void representation(void);
 
-int *seqsearch(int);
+int *binarysearch(int);
+int *binarysearchbase(int, int, int);
 
-int main(int argc, char* *argv) {
+int main(int argc, char * *argv) {
   size = malloc(sizeof(int));
   *size = atoi(*++argv);
 
@@ -23,7 +24,7 @@ int main(int argc, char* *argv) {
   );
 
   while (scanf("%d", target) == 1) {
-    printf("Entered number located at index: %d\n", (seqsearch(*target) - collection));
+    printf("Entered number located at index: %d\n", (binarysearch(*target) - collection));
   }
 }
 
@@ -42,11 +43,19 @@ static void representation(void) {
   }
 }
 
-int * seqsearch(int v) {
+int *binarysearch(int v) {
+  return binarysearchbase(v, 0, *size);
+}
+
+int *binarysearchbase(int v, int l, int r) {
   int *cp = collection;
-  while (*cp) {
-    if (*cp == v) return cp;
-    *cp++;
+  int m = (l + r) / 2;
+  if (*(cp + m) == v) {
+    return cp + m;
+  } else if (*(cp + m) < v) {
+    return binarysearchbase(v, m + 1, r);
+  } else {
+    return binarysearchbase(v, l, m - 1);
   }
 }
 

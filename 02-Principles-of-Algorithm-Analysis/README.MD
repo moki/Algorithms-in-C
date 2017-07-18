@@ -2,7 +2,7 @@
 
 ### Examples
 
-# 1.3 Sequential search
+# 2.1 Sequential search
 
 ## Sequential search
   
@@ -14,4 +14,18 @@
   ./seq-search 10
   ```
 
-  Provide program with argument a, the collection [1, ..., a] will be generated. Then provide program with value to search for in the collection one at a time, to find its index in the collection.
+  Run program with argument a, the sorted collection [1, ..., a] will be generated. Then provide program with value to search for in the collection one at a time, to find its index in the collection.
+
+# 2.2 Binary search
+
+## Binary search
+  
+  Binary search implementation.
+
+  ```
+  gcc binary.c -o binary
+
+  ./binary 10
+  ```
+
+  Run program with argument a, the sorted collection [1, ..., a] will be generated. Then provide program with value to search for in the collection one at a time, to find its index in the collection.
