@@ -36,14 +36,13 @@
   ./main 10
   ```
 
-#### 3.6 Dynamic memory allocation foor an array
-  
-  Dynamic memory allocation foor an array
+#### 3.9 Circullar list
+
+  Circular Linked list example
 
   ```
-  cd 3.3/
 
-  gcc -lm main.c functions.c point.h -o main
-
-  ./main 10
+  gcc cll -o cll
+ 
+  ./cll m n
   ```
