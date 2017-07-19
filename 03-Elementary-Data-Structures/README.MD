@@ -19,7 +19,31 @@
   ```
   cd 3.2/
 
-  gcc main.c methods.c num.h -o main
+  gcc -lm main.c methods.c num.h -o main
+
+  ./main 10
+  ```
+
+#### 3.3 Point data type interface
+  
+  Point data type interface, struct example
+
+  ```
+  cd 3.3/
+
+  gcc -lm main.c functions.c point.h -o main
+ 
+  ./main 10
+  ```
+
+#### 3.6 Dynamic memory allocation foor an array
+  
+  Dynamic memory allocation foor an array
+
+  ```
+  cd 3.3/
+
+  gcc -lm main.c functions.c point.h -o main
 
   ./main 10
   ```
