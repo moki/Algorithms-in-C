@@ -46,3 +46,17 @@
  
   ./cll m n
   ```
+
+### Exercises
+
+#### Singly Linked list
+
+  Singly Linked list implementation example.
+
+  ```
+  cd singly-linked-list/
+
+  gcc main.c functions.c node.h -o main
+
+  ./main
+  ```
